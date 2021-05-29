@@ -67,7 +67,7 @@ def jpg_select():
     global janken_counter_old
     global you_win
     while(1):
-        じゃんけんを実施したか？
+        #じゃんけんを実施したか？
         if janken_counter == janken_counter_old:
             time.sleep(1) 
             continue
@@ -77,11 +77,11 @@ def jpg_select():
         #実施しました
         janken_counter_old = janken_counter
         if you_win == 1:
-            n = 'sample01.jpg'
+            n = 'win.jpg'
         elif you_win == 2:
-            n = 'sample02.jpg'
+            n = 'lose.jpg'
         else:
-            n = 'sample03.jpg'
+            n = 'aiko.jpg'
            
         img2 = Image.open(n)
         img2 = img2.resize((400,300),Image.ANTIALIAS)
