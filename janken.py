@@ -6,9 +6,11 @@ import time
 import threading
 import glob
 import signal
+from tkinter.font import Font 
 you_win = 0
 janken_counter = 0
 janken_counter_old = 0
+
 class TestCombobox(ttk.Combobox):
     def __init__(self, var, master=None):
         li = ['グー', 'チョキ', 'パー']     
@@ -97,10 +99,10 @@ if __name__ == "__main__":
     #ウインドウのサイズの初期値    2020.10.21
     root.geometry('1000x400')
     var = tkinter.StringVar(master=root)
-    l = tkinter.Label(textvariable=var)
+    l = tkinter.Label(textvariable=var,font=32)
+    l.place(x=700,y=100)
     c = TestCombobox(master=root, var=var)
-    l.pack()
-    c.pack()
+    c.place(x=700,y=50)
     thread2 = threading.Thread(target=jpg_select)
     thread2.start()
     root.mainloop()
