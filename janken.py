@@ -10,7 +10,7 @@ from tkinter.font import Font
 you_win = 0
 janken_counter = 0
 janken_counter_old = 0
-
+jan =0
 class TestCombobox(ttk.Combobox):
     def __init__(self, var, master=None):
         li = ['グー', 'チョキ', 'パー']     
@@ -25,6 +25,7 @@ class TestCombobox(ttk.Combobox):
         global janken_counter
         global janken_counter_old
         global you_win
+        global jan
         #じゃんけんを実施したらカウントアップ
         janken_counter = janken_counter + 1
         #コンピュータは乱数でじゃんけんを決定します
@@ -32,35 +33,35 @@ class TestCombobox(ttk.Combobox):
         if jan == 1:
             jan_con='グー'
             if self.get() == 'チョキ':
-                self.var.set('敵はグー：あなたの負け')    
+                self.var.set('あなたはチョキ：あなたの負け')    
                 you_win = 2
             elif  self.get() == 'パー':
-                self.var.set('敵はグー：あなたの勝ち')    
+                self.var.set('あなたはパー：あなたの勝ち')    
                 you_win = 1
             else:
-                self.var.set('敵はグー：あいこ')    
+                self.var.set('あなたはグー：あいこ')    
                 you_win = 0
         elif jan == 2:
             jan_con='チョキ'
             if self.get() == 'パー':
-                self.var.set('敵はチョキ：あなたの負け')    
+                self.var.set('あなたはパー：あなたの負け')    
                 you_win = 2
             elif  self.get() == 'グー':
-                self.var.set('敵はチョキ：あなたの勝ち')    
+                self.var.set('あなたはグー：あなたの勝ち')    
                 you_win = 1
             else:
-                self.var.set('敵はチョキ：あいこ')    
+                self.var.set('あなたはチョキ：あいこ')    
                 you_win = 0
         elif jan == 3:
             jan_con='パー'
             if self.get() == 'グー':
-                self.var.set('敵はパー：あなたの負け')    
+                self.var.set('あなたはグー：あなたの負け')    
                 you_win = 2
             elif  self.get() == 'チョキ':
-                self.var.set('敵はパー：あなたの勝ち')    
+                self.var.set('あなたはチョキ：あなたの勝ち')    
                 you_win = 1
             else:
-                self.var.set('敵はパー：あいこ')    
+                self.var.set('あなたはパー：あいこ')    
                 you_win = 0
         else:
            pass 
@@ -68,6 +69,7 @@ def jpg_select():
     global janken_counter
     global janken_counter_old
     global you_win
+    global jan
     while(1):
         #じゃんけんを実施したか？
         if janken_counter == janken_counter_old:
@@ -78,13 +80,16 @@ def jpg_select():
             pass
         #実施しました
         janken_counter_old = janken_counter
-        if you_win == 1:
-            n = 'win.jpg'
-        elif you_win == 2:
-            n = 'lose.jpg'
+
+
+        if jan == 1:
+            n = 's_gu.jpg'
+        elif jan == 2:
+            n = 's_choki.jpg'
         else:
-            n = 'aiko.jpg'
-           
+            n = 's_pa.jpg'
+
+
         img2 = Image.open(n)
         img2 = img2.resize((400,300),Image.ANTIALIAS)
         img2 = ImageTk.PhotoImage(img2)
@@ -99,7 +104,7 @@ if __name__ == "__main__":
     #ウインドウのサイズの初期値    2020.10.21
     root.geometry('1000x400')
     var = tkinter.StringVar(master=root)
-    l = tkinter.Label(textvariable=var,font=32)
+    l = tkinter.Label(textvariable=var,font=48)
     l.place(x=700,y=100)
     c = TestCombobox(master=root, var=var)
     c.place(x=700,y=50)
