@@ -83,11 +83,11 @@ def jpg_select():
 
 
         if jan == 1:
-            n = 'gu2.jpg'
+            n = 'gu3.jpg'
         elif jan == 2:
-            n = 'choki2.jpg'
+            n = 'choki3.jpg'
         else:
-            n = 'pa2.jpg'
+            n = 'pa3.jpg'
 
 
         img2 = Image.open(n)
