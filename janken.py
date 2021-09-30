@@ -70,6 +70,8 @@ def jpg_select():
     global janken_counter_old
     global you_win
     global jan
+
+
     while(1):
         #じゃんけんを実施したか？
         if janken_counter == janken_counter_old:
@@ -83,12 +85,17 @@ def jpg_select():
 
 
         if jan == 1:
+            computer='グー'
             n = 'gu3.jpg'
         elif jan == 2:
+            computer='チョキ'
             n = 'choki3.jpg'
         else:
+            computer='パー'
             n = 'pa3.jpg'
 
+        lbl = tkinter.Label(text='コンピュータは'+computer,font=48)
+        lbl.place(x=30, y=350)
 
         img2 = Image.open(n)
         img2 = img2.resize((400,300),Image.ANTIALIAS)
