@@ -73,7 +73,7 @@ def jpg_select():
     while(1):
         #じゃんけんを実施したか？
         if janken_counter == janken_counter_old:
-            time.sleep(1) 
+            #time.sleep(1) 
             continue
             #じゃんけんしてません
         else:
@@ -111,7 +111,7 @@ def jpg_select():
         canvas = tkinter.Canvas(bg = "white", width=300, height=200)
         canvas.place(x=600, y=140)
         item = canvas.create_image(30, 30, image=img3, anchor=tkinter.NW)
-        time.sleep(1) 
+        #time.sleep(1) 
         canvas.itemconfig(item,image=img3)
 
 
