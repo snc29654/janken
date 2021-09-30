@@ -96,8 +96,27 @@ def jpg_select():
         canvas = tkinter.Canvas(bg = "white", width=400, height=300)
         canvas.place(x=0, y=0)
         item = canvas.create_image(30, 30, image=img2, anchor=tkinter.NW)
-        time.sleep(1) 
         canvas.itemconfig(item,image=img2)
+
+        if c.get() == 'チョキ':
+            n='choki3.jpg'
+        if c.get() == 'グー':
+            n='gu3.jpg'
+        if c.get() == 'パー':
+            n='pa3.jpg'
+
+        img3 = Image.open(n)
+        img3 = img3.resize((300,200),Image.ANTIALIAS)
+        img3 = ImageTk.PhotoImage(img3)
+        canvas = tkinter.Canvas(bg = "white", width=300, height=200)
+        canvas.place(x=600, y=140)
+        item = canvas.create_image(30, 30, image=img3, anchor=tkinter.NW)
+        time.sleep(1) 
+        canvas.itemconfig(item,image=img3)
+
+
+
+
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     root = tkinter.Tk()
